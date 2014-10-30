@@ -9,6 +9,7 @@ cloudenvy:
 
       # Optional
       #os_region_name: RegionOne
+      #network_id : 00000000-0000-0000-0000-000000000000
 
   # Optional
   #keypair_name: your_keypair_name

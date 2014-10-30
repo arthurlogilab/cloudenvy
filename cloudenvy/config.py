@@ -14,6 +14,7 @@ CONFIG_DEFAULTS = {
         'auto_provision': False,
         'forward_agent': True,
         'default_cloud': None,
+        'network_id': None,
         'dotfiles': '.vimrc, .gitconfig, .gitignore, .screenrc',
         'sec_groups': [
             'icmp, -1, -1, 0.0.0.0/0',

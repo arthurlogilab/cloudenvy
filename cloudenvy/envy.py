@@ -24,6 +24,8 @@ class Envy(object):
             'flavor_name', self.default_config['flavor_name'])
         self.remote_user = self.project_config.get(
             'remote_user', self.default_config['remote_user'])
+        self.network_id = self.project_config.get(
+            'network_id', self.default_config['network_id'])
         self.auto_provision = self.project_config.get('auto_provision', False)
         self.sec_group_name = self.project_config.get('sec_group_name',
                                                       self.base_name)
@@ -116,6 +118,9 @@ class Envy(object):
         #     logging.info('Using userdata from: %s', userdata_path)
         #     build_kwargs['user_data'] = userdata_path
 
+        if self.network_id:
+            logging.info('Adding network-id configuration.')
+            build_kwargs['nics'] = [{'net-id': self.network_id,},]
         logging.info('Creating server...')
         server = self.cloud_api.create_server(**build_kwargs)
 
